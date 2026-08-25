@@ -4,318 +4,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Rıdvan & Cemre</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #071b13, #123d2b, #071b13);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Hareketli arka plan */
-        .background {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
-            animation: float 10s infinite ease-in-out;
-        }
-
-        .circle:nth-child(1) {
-            width: 250px;
-            height: 250px;
-            top: 10%;
-            left: 5%;
-        }
-
-        .circle:nth-child(2) {
-            width: 350px;
-            height: 350px;
-            bottom: -100px;
-            right: 5%;
-            animation-delay: 2s;
-        }
-
-        .circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 50%;
-            right: 30%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-
-            50% {
-                transform: translateY(-40px) scale(1.08);
-            }
-        }
-
-        /* Üst bölüm */
-        header {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .hero {
-            animation: appear 1.5s ease forwards;
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .park {
-            font-size: 55px;
-            margin-bottom: 15px;
-            animation: bounce 3s infinite ease-in-out;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        h1 {
-            font-size: clamp(45px, 8vw, 90px);
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #ffffff, #8fffc5);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .subtitle {
-            font-size: 20px;
-            color: #c8e8d8;
-            margin-bottom: 35px;
-        }
-
-        .location {
-            display: inline-block;
-            padding: 13px 25px;
-            border-radius: 30px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            animation: pulse 2.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 rgba(100,255,180,0);
-            }
-
-            50% {
-                box-shadow: 0 0 30px rgba(100,255,180,0.2);
-            }
-        }
-
-        /* İçerik */
-        main {
-            max-width: 1000px;
-            margin: auto;
-            padding: 50px 25px 100px;
-        }
-
-        .section {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 25px;
-            padding: 35px;
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: sectionIn 1s ease forwards;
-        }
-
-        .section:nth-child(2) {
-            animation-delay: .3s;
-        }
-
-        .section:nth-child(3) {
-            animation-delay: .6s;
-        }
-
-        @keyframes sectionIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #9fffc8;
-        }
-
-        .section p {
-            color: #d8eee3;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-        .people {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .person {
-            padding: 25px;
-            border-radius: 20px;
-            background: rgba(0,0,0,0.15);
-            transition: .3s;
-        }
-
-        .person:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.1);
-        }
-
-        .person h3 {
-            font-size: 25px;
-            margin-bottom: 8px;
-        }
-
-        .person p {
-            font-size: 15px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #8fb9a5;
-            font-size: 14px;
-        }
-
-        /* Mobil */
-        @media (max-width: 650px) {
-            .people {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 25px;
-            }
-
-            h1 {
-                font-size: 50px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="background">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+    <!-- Açılış ekranı -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-icon">🌳</div>
+            <h2>Sude Sitesi</h2>
+            <p>Bir hikâyenin başladığı yer...</p>
+        </div>
     </div>
 
-    <header>
-        <div class="hero">
-            <div class="park">🌳</div>
+    <!-- Arka plan -->
+    <div class="background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
 
-            <h1>Rıdvan & Cemre</h1>
+        <div class="leaf">🍃</div>
+        <div class="leaf leaf-2">🍃</div>
+        <div class="leaf leaf-3">🍃</div>
+    </div>
 
-            <p class="subtitle">
+    <!-- Navigasyon -->
+    <nav>
+        <div class="logo">R&C</div>
+
+        <div class="nav-links">
+            <a href="#home">Ana Sayfa</a>
+            <a href="#story">Hikâye</a>
+            <a href="#place">Yer</a>
+        </div>
+    </nav>
+
+    <!-- Ana bölüm -->
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="hero-icon">
+                🌳
+            </div>
+
+            <p class="small-title">
+                SUDE SİTESİ
+            </p>
+
+            <h1>
+                Rıdvan
+                <span>&</span>
+                Cemre
+            </h1>
+
+            <p class="hero-text">
                 Her şey Sude Sitesi'nin parkında başladı...
             </p>
 
-            <div class="location">
-                📍 Sude Sitesi Parkı
-            </div>
-        </div>
-    </header>
+            <a href="#story" class="start-button">
+                Hikâyeye Bak
+                <span>↓</span>
+            </a>
 
-    <main>
-
-        <section class="section">
-            <h2>🌿 Nasıl Tanıştılar?</h2>
-
-            <p>
-                Rıdvan ara sıra Sude Sitesi'nin parkına inerdi.
-                Bir gün parkta Cemre ile tanıştı.
-                Böylece Sude Sitesi Parkı, onların tanıştığı yer oldu.
-            </p>
         </section>
 
-        <section class="section">
-            <h2>👥 Onlar</h2>
+
+        <!-- Hikâye -->
+        <section id="story" class="section reveal">
+
+            <div class="section-title">
+                <span>01</span>
+                <h2>Nasıl Tanıştılar?</h2>
+            </div>
+
+            <div class="story-card">
+
+                <div class="story-icon">
+                    🌿
+                </div>
+
+                <div>
+                    <p>
+                        Rıdvan ara sıra Sude Sitesi'nin parkına inerdi.
+                        Bir gün parkta Cemre ile tanıştı.
+                    </p>
+
+                    <p>
+                        Büyük ve uzun bir hikâye değildi...
+                        Sadece Sude Sitesi'nin parkında başlayan
+                        küçük bir tanışmaydı.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Kişiler -->
+        <section class="section reveal">
+
+            <div class="section-title">
+                <span>02</span>
+                <h2>Onlar</h2>
+            </div>
 
             <div class="people">
 
-                <div class="person">
+                <div class="person-card">
+
+                    <div class="avatar">
+                        👦
+                    </div>
+
                     <h3>Rıdvan</h3>
+
                     <p>
-                        Sude Sitesi'nin parkına ara sıra iner.
+                        Sude Sitesi'nin parkına
+                        ara sıra iner.
                     </p>
+
                 </div>
 
-                <div class="person">
+
+                <div class="person-card">
+
+                    <div class="avatar">
+                        👧
+                    </div>
+
                     <h3>Cemre</h3>
+
                     <p>
-                        Rıdvan'ın parkta tanıştığı kişi.
+                        Rıdvan'ın parkta
+                        tanıştığı kişi.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tanışma yeri -->
+        <section id="place" class="section reveal">
+
+            <div class="section-title">
+                <span>03</span>
+                <h2>Tanıştıkları Yer</h2>
+            </div>
+
+            <div class="place-card">
+
+                <div class="place-icon">
+                    📍
+                </div>
+
+                <div>
+                    <h3>Sude Sitesi Parkı</h3>
+
+                    <p>
+                        Bazen sıradan görünen bir park,
+                        güzel bir tanışmanın başlangıcı olabilir.
                     </p>
                 </div>
 
             </div>
-        </section>
 
-        <section class="section">
-            <h2>📍 Sude Sitesi</h2>
-
-            <p>
-                Hikâyenin başladığı yer:
-                <strong>Sude Sitesi Parkı.</strong>
-                Bazen sıradan bir park, güzel bir tanışmanın
-                başlangıcı olabilir.
-            </p>
         </section>
 
     </main>
 
+
+    <!-- Footer -->
     <footer>
-        Sude Sitesi • Rıdvan & Cemre
+
+        <div class="footer-logo">
+            Rıdvan <span>&</span> Cemre
+        </div>
+
+        <p>
+            Sude Sitesi Parkı • Hikâyenin başladığı yer 🌿
+        </p>
+
     </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>

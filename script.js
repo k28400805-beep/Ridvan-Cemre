@@ -1,20 +1,22 @@
 ```javascript
-// ======================================
-// RıDVAN & CEMRE - SCRIPT.JS
-// ======================================
+// ==========================================
+// Rıdvan & Cemre
+// Sude Sitesi
+// ==========================================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // ==================================
+    // ------------------------------------------
     // SCROLL ANİMASYONLARI
-    // ==================================
+    // ------------------------------------------
 
-    const revealElements = document.querySelectorAll(".reveal");
+    const elements = document.querySelectorAll(".reveal");
 
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
+    if (elements.length > 0) {
 
-            entries.forEach((entry) => {
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
 
                 if (entry.isIntersecting) {
                     entry.target.classList.add("show");
@@ -22,25 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
 
-        },
-        {
-            threshold: 0.15
-        }
-    );
+        }, {
+            threshold: 0.1
+        });
+
+        elements.forEach(function (element) {
+            observer.observe(element);
+        });
+
+    }
 
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
-
-
-    // ==================================
-    // NAVBAR
-    // ==================================
+    // ------------------------------------------
+    // NAVBAR SCROLL EFEKTİ
+    // ------------------------------------------
 
     const navbar = document.querySelector("nav");
 
-    function updateNavbar() {
+    function navbarScroll() {
 
         if (!navbar) return;
 
@@ -56,28 +57,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    window.addEventListener("scroll", updateNavbar);
+    window.addEventListener("scroll", navbarScroll);
 
-    updateNavbar();
+    navbarScroll();
 
 
-    // ==================================
-    // YUMUŞAK MENÜ GEÇİŞLERİ
-    // ==================================
+    // ------------------------------------------
+    // MENÜ LİNKLERİ
+    // ------------------------------------------
 
-    const links = document.querySelectorAll('a[href^="#"]');
+    const menuLinks = document.querySelectorAll(
+        'nav a[href^="#"]'
+    );
 
-    links.forEach((link) => {
+    menuLinks.forEach(function (link) {
 
-        link.addEventListener("click", (event) => {
+        link.addEventListener("click", function (event) {
 
-            const targetId = link.getAttribute("href");
+            const id = link.getAttribute("href");
 
-            if (!targetId || targetId === "#") return;
+            if (!id || id === "#") {
+                return;
+            }
 
-            const target = document.querySelector(targetId);
+            const target = document.querySelector(id);
 
-            if (!target) return;
+            if (!target) {
+                return;
+            }
 
             event.preventDefault();
 
@@ -91,61 +98,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // ==================================
-    // HERO PARLAKLIK EFEKTİ
-    // ==================================
+    // ------------------------------------------
+    // HİKÂYE KARTLARI
+    // ------------------------------------------
+
+    const cards = document.querySelectorAll(
+        ".story-card, .person-card, .place-card"
+    );
+
+    cards.forEach(function (card) {
+
+        card.addEventListener("mouseenter", function () {
+
+            card.style.transform = "translateY(-8px)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            card.style.transform = "";
+
+        });
+
+    });
+
+
+    // ------------------------------------------
+    // HERO HAREKET EFEKTİ
+    // ------------------------------------------
 
     const hero = document.querySelector(".hero");
 
-    if (hero) {
+    if (hero && window.innerWidth > 700) {
 
-        hero.addEventListener("mousemove", (event) => {
+        hero.addEventListener("mousemove", function (event) {
 
-            const x = (event.clientX / window.innerWidth - 0.5) * 10;
-            const y = (event.clientY / window.innerHeight - 0.5) * 10;
+            const x =
+                (event.clientX / window.innerWidth - 0.5) * 8;
+
+            const y =
+                (event.clientY / window.innerHeight - 0.5) * 8;
 
             hero.style.transform =
                 `translate(${x}px, ${y}px)`;
 
         });
 
-        hero.addEventListener("mouseleave", () => {
+        hero.addEventListener("mouseleave", function () {
 
-            hero.style.transform = "translate(0, 0)";
+            hero.style.transform = "";
 
         });
 
     }
 
 
-    // ==================================
-    // KARTLARA HOVER EFEKTİ
-    // ==================================
+    // ------------------------------------------
+    // SAYFA HAZIR
+    // ------------------------------------------
 
-    const cards = document.querySelectorAll(
-        ".person-card, .story-card, .place-card"
+    console.log(
+        "Rıdvan & Cemre sitesi başarıyla yüklendi 🌳"
     );
-
-    cards.forEach((card) => {
-
-        card.addEventListener("mouseenter", () => {
-
-            card.style.transition = "transform .3s ease";
-
-        });
-
-    });
 
 });
 
 
-// ======================================
-// SAYFA TAM YÜKLENDİĞİNDE
-// ======================================
+// ==========================================
+// SAYFA TAMAMEN YÜKLENDİ
+// ==========================================
 
-window.addEventListener("load", () => {
+window.addEventListener("load", function () {
 
-    console.log("Rıdvan & Cemre sitesi hazır! 🌳");
+    document.body.classList.add("loaded");
 
 });
 ```

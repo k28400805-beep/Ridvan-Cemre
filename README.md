@@ -22,4 +22,4 @@ Bu site, Rıdvan ve Cemre için hazırlanmış küçük ve özel bir web sitesid
 **Rıdvan & Cemre**
 *Her şey Sude Sitesi'nin parkında başladı...* 🌿
 
-https://k28400805-beep.github.io/Ridvan-Cemre/
+https://k28400805-beep.github.io/Ridvan-Cemre/#home

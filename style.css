@@ -689,3 +689,423 @@ footer p {
     }
 
 }
+/* ==========================================
+   ŞIK DÜĞÜN DAVETİYESİ
+========================================== */
+
+.wedding {
+    position: relative;
+    max-width: 1000px;
+    margin: 80px auto 120px;
+    padding: 120px 20px;
+
+    text-align: center;
+}
+
+
+/* Üst başlık */
+
+.wedding-top {
+    margin-bottom: 35px;
+}
+
+.wedding-top span {
+    display: inline-block;
+
+    padding: 10px 24px;
+
+    border: 1px solid rgba(141,243,187,.4);
+    border-radius: 50px;
+
+    color: #9fffc5;
+
+    letter-spacing: 5px;
+    font-size: 11px;
+
+    background: rgba(141,243,187,.06);
+
+    box-shadow:
+        0 0 25px rgba(141,243,187,.08);
+}
+
+
+/* ==========================================
+   DAVETİYE KAĞIDI
+========================================== */
+
+.wedding-card {
+    position: relative;
+
+    max-width: 720px;
+
+    margin: auto;
+
+    padding: 75px 65px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.045)
+        );
+
+    border: 1px solid rgba(210,255,230,.28);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.45),
+        0 0 60px rgba(141,243,187,.08);
+
+    backdrop-filter: blur(20px);
+
+    overflow: hidden;
+
+    transition: .5s;
+}
+
+
+/* İç çerçeve */
+
+.wedding-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 18px;
+
+    border: 1px solid rgba(141,243,187,.18);
+
+    pointer-events: none;
+}
+
+
+/* Köşe süsleri */
+
+.wedding-card::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: 25px;
+    left: 30px;
+
+    font-size: 20px;
+
+    color: #8df3bb;
+
+    text-shadow:
+        0 0 15px rgba(141,243,187,.5);
+}
+
+
+/* Sağ üst süs */
+
+.wedding-card > .invitation-text:first-child::before {
+    content: "✦";
+
+    display: block;
+
+    font-size: 18px;
+
+    color: #8df3bb;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   YAZILAR
+========================================== */
+
+.invitation-text {
+    position: relative;
+
+    color: #bfd4c8;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    letter-spacing: .3px;
+}
+
+
+.wedding-card h2 {
+    position: relative;
+
+    margin: 25px 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(45px, 7vw, 72px);
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    color: #f2fff7;
+
+    text-shadow:
+        0 0 25px rgba(141,243,187,.12);
+}
+
+
+/* ==========================================
+   AYRAÇ
+========================================== */
+
+.divider {
+    position: relative;
+
+    margin: 38px auto;
+
+    width: 180px;
+
+    color: #8df3bb;
+
+    font-size: 18px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 65px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(141,243,187,.5)
+        );
+}
+
+.divider::before {
+    right: 100%;
+}
+
+.divider::after {
+    left: 100%;
+
+    transform: rotate(180deg);
+}
+
+
+/* ==========================================
+   AİLELER
+========================================== */
+
+.families {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    margin: 35px auto 50px;
+
+    max-width: 500px;
+}
+
+
+.families::after {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 55px;
+
+    background: rgba(141,243,187,.2);
+
+    left: 50%;
+
+    top: 5px;
+}
+
+
+.families h3 {
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+
+    font-weight: normal;
+
+    color: #eafff1;
+
+    margin-bottom: 8px;
+}
+
+
+.families p {
+    color: #91a99c;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   TARİH / SAAT / MEKAN
+========================================== */
+
+.details {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    max-width: 560px;
+
+    margin: auto;
+}
+
+
+.detail {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 18px 12px;
+
+    background: rgba(0,0,0,.12);
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    border-radius: 3px;
+
+    transition: .3s;
+}
+
+
+.detail:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(141,243,187,.3);
+
+    background:
+        rgba(141,243,187,.05);
+}
+
+
+.detail span {
+    font-size: 20px;
+}
+
+
+.detail strong {
+    color: #d8e9df;
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   ALT MESAJ
+========================================== */
+
+.invitation-bottom {
+    position: relative;
+
+    margin-top: 50px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+}
+
+
+.invitation-bottom p {
+    color: #91a99c;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   DAVETİYE HOVER
+========================================== */
+
+.wedding-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 45px 110px rgba(0,0,0,.5),
+        0 0 80px rgba(141,243,187,.12);
+}
+
+
+/* ==========================================
+   MOBİL
+========================================== */
+
+@media (max-width: 600px) {
+
+    .wedding {
+        padding: 80px 15px;
+    }
+
+    .wedding-card {
+        padding: 60px 25px;
+    }
+
+    .wedding-card::before {
+        inset: 10px;
+    }
+
+    .wedding-card h2 {
+        font-size: 43px;
+    }
+
+    .families {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .families::after {
+        display: none;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .invitation-text {
+        font-size: 14px;
+    }
+
+}
